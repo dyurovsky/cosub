@@ -321,6 +321,9 @@ def create_hit(settings):
 
   logger.write({'Action': 'Create', 'Data': settings_raw })
 
+ # if mode == "production":
+  logger.write_server({'Action': 'Create', 'Data': settings_raw, 'HITId': hit["id"]})
+
 def update_hit(settings):
   global hit
   hit_quals = Qualifications()

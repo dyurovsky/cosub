@@ -2,6 +2,8 @@
 
 A command-line tool for creating external HITs on Amazon's Mechanical Turk.
 
+This version is forked from Long's original version. It includes a new function that writes to a remote directory when HITS are added so that iformation about all hits from one lab can be centralized.
+
 **Note: under rapid development; this document is incomplete**
 
 ## Philosophy
@@ -22,7 +24,7 @@ OSX:
 
 ```sh
 sudo pip install -U setuptools
-sudo pip install git+git://github.com/longouyang/cosub.git
+sudo pip install git+git://github.com/dyurovsky/cosub.git
 ```
 
 Note that you probably only need to run the first line if you're on Mavericks.
@@ -30,7 +32,7 @@ Note that you probably only need to run the first line if you're on Mavericks.
 Windows:
 
 ```sh
-pip install git+git://github.com/longouyang/cosub.git
+pip install git+git://github.com/dyurovsky/cosub.git
 ```
 
 ## Usage
@@ -59,6 +61,8 @@ and add your HIT settings to `settings.json`, e.g.,
     "assignment_duration":  "1 hour",
     "auto_approval_delay":  "5 minutes",
     "reward":               0.60,
+    "experimenter":         "Long Ouyang",
+    "server_log_path":      "http://langcog.stanford.edu/cgi-bin/cosub/location.php",
     "qualifications": {
         "location": "US",
         "approval_percentage": 85
@@ -79,6 +83,8 @@ cosub status   # summarize HIT (settings, time left, # assignments, ...)
 cosub history  # show history of cosub actions
 ```
 By default, actions take place on the sandbox. You can run actions in production mode by adding `'-p'` after `cosub`, e.g., `cosub -p create` creates the HIT on the production site rather than the sandbox.
+
+In order for remote-writing to work, you need to specify an experimenter and a server_log_path in settings.json
 
 You can also combine adding assignments and time:
 

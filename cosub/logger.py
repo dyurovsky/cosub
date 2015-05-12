@@ -3,6 +3,8 @@
 import os
 import csv
 from datetime import datetime
+import urllib 
+import urllib2
 
 name = "history.csv"
 fields = ["Time","Action","Data"]
@@ -34,3 +36,11 @@ def read():
 	reader = csv.DictReader(logfile, fieldnames=fields)
 	logfile.close()
 	return "TODO"
+
+def write_server(d):
+	d['Time'] = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+	post_d = urllib.urlencode({"data":d})
+	path = d['Data']['server_log_path']
+
+	req = urllib2.Request(path, post_d)
+	response = urllib2.urlopen(req)
