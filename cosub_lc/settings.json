@@ -7,6 +7,8 @@
     "assignment_duration":  "1 hour",
     "auto_approval_delay":  "5 minutes",
     "reward":               0.60,
+    "experimenter":         "Long Ouyang",
+    "server_log_path":      "http://langcog.stanford.edu/cgi-bin/cosub/location.php",
     "qualifications": {
         "location": "US",
         "approval_percentage": 85
