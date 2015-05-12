@@ -1,4 +1,4 @@
-# cosub
+# cosub-lc
 
 A command-line tool for creating external HITs on Amazon's Mechanical Turk.
 
