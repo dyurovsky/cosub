@@ -1,1 +1,1 @@
-from cosub-lc import *
+from cosub_lc import *
