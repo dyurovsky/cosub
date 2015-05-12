@@ -10,7 +10,7 @@ setup(name='cosub-lc',
       install_requires = ['boto >= 2.33.0','pytimeparse >= 1.1.2'],
       entry_points = {
         'console_scripts': [
-          'cosub = cosub-lc.runner:go'
+          'cosub = cosub.runner:go'
         ]
       }
 )
